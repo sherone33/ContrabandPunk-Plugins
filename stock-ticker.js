@@ -56,7 +56,7 @@
            x += t.w;
         }
      }
-     tickerX -= 1.2;
+     tickerX -= 0.75;
      if(tickerX < -tickerTotalW) tickerX += tickerTotalW;
      return true;
   }
