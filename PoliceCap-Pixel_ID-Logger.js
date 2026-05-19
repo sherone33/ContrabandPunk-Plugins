@@ -1,6 +1,6 @@
 // @name: PoliceCap-Pixel_ID-Logger (all 5 pixels)                                                                                                                       
 // @description: Logs every cap-pixel tap, including engine-reserved ones (1: EKG, 2: Equalizer)                                                                         
-// @author: built-in                                                                                                                                                     
+// @author: Sherone                                                                                                                                                     
                                                                                                                                                                          
 // Cap pixel names with reserved-status flag                                                                                                                             
 var CAP_NAMES = [
