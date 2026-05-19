@@ -1,5 +1,3 @@
-Use this exact content when you create click-logger.js in your GitHub repo:                                                                                              
-                                                                                                                                                                         
 // @name: PoliceCap-Pixel_ID-Logger (all 5 pixels)                                                                                                                                    
 // @description: Logs every cap-pixel tap to the console, including the engine-reserved ones (1: EKG, 2: Equalizer)                                                      
 // @author: built-in                                                                                                                                                     
