@@ -1,6 +1,6 @@
 // @name: Crosshair Overlay                                                                                                                                              
 // @description: Draws a targeting crosshair that follows a sine wave
-// @author: by Sherone
+// @author: Sherone
 
 var crossT = 0;
 
