@@ -1,6 +1,6 @@
 // @name: Red Flash on Click                                                                                                                                             
 // @description: Tap Pixel 0 (left-most pixel) in the Police-Cap to create a quick red-flash in the VR glasses
-// @author: built-in
+// @author: Sherone
 
 var flashOn = false;                                                                                                                                                     
 var flashTimer = 0;
