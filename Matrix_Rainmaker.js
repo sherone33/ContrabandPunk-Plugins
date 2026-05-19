@@ -1,6 +1,6 @@
 // @name: Matrix Rain
 // @description: Falling green characters in the glasses display                                                                                                         
-// @author: built-in
+// @author: Sherone
                                                                                                                                                                          
 var matrixCols = [];
 var matrixChars = "01";
