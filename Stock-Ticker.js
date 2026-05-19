@@ -1,6 +1,6 @@
 // @name: Stock Ticker
   // @description: Scrolling stock ticker with fake prices and green/red changes
-  // @author: sherone
+  // @author: Sherone
 
   var tickerX = 0;
   var tickerInited = false;
