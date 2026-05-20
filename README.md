@@ -68,7 +68,7 @@ For the full reference (accessible globals, hover-glow colors, dimensions, etc.)
 
 ---
 
-## CAP-PIXEL RULES — TWO ARE RESERVED
+## POLICE-CAP PIXEL RULES — TWO ARE RESERVED
 
 The punk's white cap has 5 clickable pixels:
 
