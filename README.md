@@ -1,8 +1,8 @@
 # CONTRABAND PUNK PLUGINS
 
-A repository of community-contributed JavaScript plugin animations and apps for **The Contraband Punk** — a fully on-chain animated ERC721 NFT by [Sherone Rabinovitz](https://cryptopunksorigins.com).
+A repository of community-contributed JavaScript plugin apps and animations for **The Contraband Punk** — a fully on-chain animated ERC721 NFT by [Sherone Rabinovitz](https://cryptopunksorigins.com).
 
-The Contraband Punk's animation engine exposes 4 plugin hooks. You can write JavaScript that taps into them to add custom animations, games, or visual effects that run inside the NFT's VR-goggle display area. This repo collects approved plugin submissions.
+The Contraband Punk's animation engine exposes 4 plugin hooks. You can write JavaScript that taps into them to add custom apps, animations, games, or visual effects that run inside the NFT's VR-goggle display area. This repo collects approved plugin submissions.
 
 The Lab page (`ContrabandPunks-LAB.html` on the project website) auto-fetches every `.js` file from this repo's `main` branch on page load and lists them under the **SAMPLE SNIPPETS** tab — so contributions show up automatically once merged.
 
@@ -86,16 +86,33 @@ The punk's white cap has 5 clickable pixels:
 
 ---
 
-## SIZE CONSIDERATIONS
+## SIZE CONSIDERATIONS — TWO STORAGE PATHS, TWO VERY DIFFERENT LIMITS
 
-Plugins can take two paths to actually run inside real NFTs:
+Once your plugin is approved, it can be pushed on-chain via one of **two storage paths**. They have radically different size constraints — knowing which one your plugin is targeting matters enormously.
 
-| Storage path | Byte budget per plugin | Where it runs |
-|---|---|---|
-| Main NFT contract's `tokenURI()` | **~500 bytes minified** (worst case) | Visible EVERYWHERE — OpenSea, MetaMask, Etherscan, all NFT viewers |
-| Stash contract (off-budget) | **No per-entry cap** | Only visible on the project's own website + `token-viewer.html` |
+### 🟠 PATH A — Main NFT Contract (function: `addAdditionalJSCode`)
 
-Aim for **under 500 bytes minified** if you want your plugin to potentially ship globally. The Lab's REFERENCE tab has the full size analysis. For larger plugins, the Stash contract path is fine — they just won't appear on third-party NFT viewers.
+- **Byte budget: ~500 bytes minified per plugin (worst case)**
+- **Visibility: EVERYWHERE** — runs on OpenSea, MetaMask, Etherscan, every third-party NFT viewer, AND the project's website
+- **Why the tight budget**: the main contract's `tokenURI()` function bundles SVG + animation JS + messages + plugins into a single base64-encoded string with a hard gas ceiling of ~34,890 bytes. The animation JS alone takes ~32,495 bytes, leaving only ~2,395 bytes shared between ALL messages AND plugins combined
+- **Best for**: tiny, polished effects with broad cross-platform appeal that everyone should see
+
+### 🟢 PATH B — Stash Contract (function: `addStashJSCode`) — *NO SIZE LIMIT*
+
+- **Byte budget: effectively unlimited** (5 KB+ confirmed working; you could submit hundreds of KB if you wanted)
+- **Visibility: project's website + `token-viewer.html` ONLY** — does NOT appear on OpenSea, MetaMask, Etherscan, or any third-party NFT viewer
+- **Why no limit**: the Stash contract stores plugins as independent entries with no aggregation function. Reads happen one-entry-at-a-time, so the size of one plugin doesn't affect any other — and nothing has to be packaged together into a single `eth_call` response
+- **Best for**: ambitious plugins (full mini-games, complex animations, large libraries) where reaching all NFT viewers isn't critical
+
+### Which path will MY plugin end up on?
+
+You don't pick — the project owner does, at merge time. As a contributor, here's how to optimize for the outcome you want:
+
+- **Want your plugin on OpenSea/MetaMask?** Keep it under 500 bytes minified. Use a JS minifier (Terser, esbuild, or even an online minifier) before submitting. Strip whitespace, shorten variable names, avoid redundant comments.
+- **Want to make something larger and don't care about cross-platform reach?** Submit at any size — the owner will route it to the Stash path. Your plugin will run on the project's website and `token-viewer.html` (which is, realistically, where most plugin-art viewing actually happens), just not on third-party platforms.
+- **Trusted devs with direct submission** (via the Lab's "🚀 SUBMIT TO STASH" button): your code **always** goes to the Stash contract automatically. No size constraint applies. No need to minify.
+
+The Lab's REFERENCE tab shows the live byte count of your editor content. Aim for whichever target is appropriate to your plugin's design goals.
 
 ---
 
