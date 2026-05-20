@@ -88,7 +88,7 @@ The punk's Police-Cap has 5 white clickable pixels:
 
 ## SIZE CONSIDERATIONS — TWO STORAGE PATHS, TWO VERY DIFFERENT LIMITS
 
-Once your plugin is approved, it can be pushed on-chain via one of **two storage paths**. They have radically different size constraints — knowing which one your plugin is targeting matters enormously.
+Once your plugin is approved (if you're a "Trusted Dev" and own a Contraband-Punk NFT you don't need approval - see section below), your pluing can be pushed on-chain via one of **two storage paths**. They have radically different size constraints — knowing which one your plugin is targeting matters enormously.
 
 ### 🟠 PATH A — Main NFT Contract (function: `addAdditionalJSCode`)
 
@@ -100,9 +100,9 @@ Once your plugin is approved, it can be pushed on-chain via one of **two storage
 ### 🟢 PATH B — Stash Contract (function: `addStashJSCode`) — *NO SIZE LIMIT*
 
 - **Byte budget: effectively unlimited** (5 KB+ confirmed working; you could submit hundreds of KB if you wanted)
-- **Visibility: project's website + `token-viewer.html` ONLY** — does NOT appear on OpenSea, MetaMask, Etherscan, or any third-party NFT viewer
+- **Visibility: project's website + `token-viewer.html` only** — doesn't appear on OpenSea, MetaMask, Etherscan, or any third-party NFT viewer
 - **Why no limit**: the Stash contract stores plugins as independent entries with no aggregation function. Reads happen one-entry-at-a-time, so the size of one plugin doesn't affect any other — and nothing has to be packaged together into a single `eth_call` response
-- **Best for**: ambitious plugins (full mini-games, complex animations, large libraries) where reaching all NFT viewers isn't critical
+- **Best for**: ambitious plugins --> cool games, complex animations, large libraries
 
 ### Which path will MY plugin end up on?
 
