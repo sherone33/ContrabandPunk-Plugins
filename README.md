@@ -70,15 +70,15 @@ For the full reference (accessible globals, hover-glow colors, dimensions, etc.)
 
 ## POLICE-CAP PIXEL RULES — TWO ARE RESERVED
 
-The punk's white cap has 5 clickable pixels:
+The punk's Police-Cap has 5 white clickable pixels:
 
 | Pixel | Built-in animation | Plugin-overridable? |
-|---|---|---|
-| 0 | Scanner (green line sweep) | ✅ Yes |
-| 1 | EKG heartbeat | 🔒 **NO — engine-reserved** |
-| 2 | Graphic Equalizer | 🔒 **NO — engine-reserved** |
-| 3 | Flash Burn | ✅ Yes |
-| 4 | Pong | ✅ Yes |
+|-------|--------------------|---------------------|
+|   0   | Scanner (green line sweep) | ✅ Yes |
+|   1   | EKG heartbeat | 🔒 **NO — engine-reserved** |
+|   2   | Graphic Equalizer | 🔒 **NO — engine-reserved** |
+|   3   | Flash Burn | ✅ Yes |
+|   4   | Pong | ✅ Yes |
 
 **Plugin authors can intercept pixels 0, 3, 4** by defining `pluginClick(idx)`. Pixels 1 and 2 are wired directly to the engine's built-in `toggleEKG()` / `toggleEqualizer()` functions — they never reach `pluginClick`, so plugins cannot disable or override the EKG/Equalizer features. This is by design.
 
