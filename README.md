@@ -2,7 +2,7 @@
 
 A repository of community-contributed JavaScript plugin animations and apps for **The Contraband Punk** — a fully on-chain animated ERC721 NFT by [Sherone Rabinovitz](https://cryptopunksorigins.com).
 
-The Contraband Punk's animation engine exposes 4 plugin hooks. You can write JavaScript that taps into them to add custom animations, mini-games, or visual effects that run inside the NFT's VR-goggle display area. This repo collects approved plugin submissions.
+The Contraband Punk's animation engine exposes 4 plugin hooks. You can write JavaScript that taps into them to add custom animations, games, or visual effects that run inside the NFT's VR-goggle display area. This repo collects approved plugin submissions.
 
 The Lab page (`ContrabandPunks-LAB.html` on the project website) auto-fetches every `.js` file from this repo's `main` branch on page load and lists them under the **SAMPLE SNIPPETS** tab — so contributions show up automatically once merged.
 
